@@ -1,0 +1,13 @@
+{
+  "appenders": [
+    {
+    "type": "dateFile",
+    "filename": "f:/sjobLogs/",
+    "pattern": "yyyyMMddhh.txt",
+    "absolute": true,
+    "alwaysIncludePattern": true,
+    "category": "logInfo"
+    }
+  ],
+  "levels":{ "logInfo": "DEBUG"}
+}

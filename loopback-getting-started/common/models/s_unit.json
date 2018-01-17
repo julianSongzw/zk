@@ -1,0 +1,147 @@
+{
+  "name": "s_unit",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "unitName": {
+      "type": "String",
+      "required": true
+    },
+    "unitId": {
+      "type": "String",
+      "required": true
+    },
+    "unitType": {
+      "type": "number",
+      "required": true
+    },
+    "createTime": {
+      "type": "number",
+      "required": true
+    },
+    "createPerson": {
+      "type": "String",
+      "required": true
+    },
+    "loudspeaker": {
+      "type": "String"
+    },
+    "screen": {
+      "type": "String"
+    },
+    "light": {
+      "type": "String"
+    },
+    "interval": {
+      "type": "String"
+    },
+    "warningLight": {
+      "type": "String"
+    },
+    "vmrs": {
+      "type": "String"
+    },
+    "alarm": {
+      "type": "String"
+    },
+    "captureCamera": {
+      "type": "String"
+    },
+    "site": {
+      "type": "String"
+    },
+    "ballMachine": {
+      "type": "String"
+    },
+    "video": {
+      "type": "String"
+    },
+    "lane1": {
+      "type": "String"
+    },
+    "lane2": {
+      "type": "String"
+    },
+    "lane3": {
+      "type": "String"
+    },
+    "lane4": {
+      "type": "String"
+    },
+    "sysCode":"String",
+    "cancelScreen":"String"
+  },
+  "validations": [],
+  "relations": {
+    "systems": {
+      "type": "belongsTo",
+      "model": "s_surveillance_system",
+      "foreignKey": "sysId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count",
+        "listAll"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    }
+  ],
+  "methods": {}
+}

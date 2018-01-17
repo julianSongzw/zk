@@ -1,0 +1,186 @@
+{
+  "name": "d_violation_ball",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "device_name": {
+      "type": "String",
+      "required": true
+    },
+    "device_nbr": {
+      "type": "String",
+      "required": true
+    },
+    "direction_type": {
+      "type": "number",
+      "required": true
+    },
+    "site_name": {
+      "type": "String"
+    },
+    "site_nbr": {
+      "type": "String"
+    },
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "org_name": {
+      "type": "String",
+      "required": true
+    },
+    "road_code": {
+      "type": "String",
+      "required": true
+    },
+    "road_name": {
+      "type": "String",
+      "required":true
+    },
+    "section_code":{
+      "type": "String"
+    },
+    "mileage": {
+      "type": "String",
+      "required": true
+    },
+    "metre": {
+      "type": "String"
+    },
+    "address": {
+      "type": "String"
+    },
+    "longitude": {
+      "type": "String"
+    },
+    "latitude": {
+      "type": "String"
+    },
+    "video_code":{
+      "type":"String",
+      "required":true
+    },
+    "video_name":{
+      "type":"String",
+      "required":true
+    },
+    "broadcast_code":"String",
+    "broadcast_name":"String",
+    "ip": {
+      "type": "String"
+    },
+    "port": {
+      "type": "String"
+    },
+    "up_direction": {
+      "type": "String"
+    },
+    "down_direction": {
+      "type": "String"
+    },
+    "command_platform": {
+      "type": "String"
+    },
+    "vendor":"String",
+    "construct":"String",
+    "model":"String",
+    "sn":"String",
+    "spec":"String",
+    "sys_code":"String",
+    "sys_name":"String",
+    "set":"any",
+    "video_nbr":"String",
+    "nbr_auto":"number"
+  },
+  "validations": [],
+  "relations": {
+    "status":{
+      "type": "hasOne",
+      "model": "d_status",
+      "foreignKey": "device_nbr",
+      "primaryKey": "device_nbr"
+    },
+    "video":{
+      "type": "belongsTo",
+      "model": "d_video_camera",
+      "foreignKey": "video_code",
+      "primaryKey": "device_nbr"
+    },
+    "broadcast":{
+      "type": "belongsTo",
+      "model": "d_broadcast",
+      "foreignKey": "broadcast_code",
+      "primaryKey": "device_nbr"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "upsertWithWhere"
+    }
+  ],
+  "methods": {}
+}

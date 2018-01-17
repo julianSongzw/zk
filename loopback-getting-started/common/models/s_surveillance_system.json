@@ -1,0 +1,111 @@
+{
+  "name": "s_surveillance_system",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "sysName": {
+      "type": "String",
+      "required": true
+    },
+    "sysCode": {
+      "type": "String",
+      "required": true
+    },
+    "createTime": {
+      "type": "number",
+      "required": true
+    },
+    "createPerson": {
+      "type": "String",
+      "required": true
+    },
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "lat":"String",
+    "long":"String"
+  },
+  "validations": [],
+  "relations": {
+    "units": {
+      "type": "hasMany",
+      "model": "s_unit",
+      "foreignKey": "sysId"
+    },
+    "meter": {
+      "type": "hasOne",
+      "model": "d_visibility_meter",
+      "foreignKey": "sysId"
+    },
+    "plans": {
+      "type": "hasMany",
+      "model": "s_plan",
+      "foreignKey": "sysId"
+    },
+    "devices":{
+      "type": "hasMany",
+      "model": "sys_device",
+      "foreignKey": "sys_code",
+      "primaryKey": "sysCode"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    }
+  ],
+  "methods": {}
+}

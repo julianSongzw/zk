@@ -1,0 +1,12 @@
+{
+  "appenders": [
+    {
+      "type": "dateFile",
+      "filename": "d:/weatherWarningLogs/",
+      "pattern": "yyyyMMddhh.txt",
+      "absolute": true,
+      "alwaysIncludePattern": true,
+      "category": "logInfos"
+    } ],
+  "levels":{ "logInfo": "DEBUG"}
+}

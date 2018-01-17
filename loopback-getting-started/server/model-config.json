@@ -1,0 +1,240 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongods",
+    "public": false,
+    "relations": {
+      "AccessTokens": {
+        "type": "hasMany",
+        "model": "AccessToken",
+        "foreignKey": "userId",
+        "options": {
+          "disableInclude": true
+        }
+      }
+    }
+  },
+  "AccessToken": {
+    "dataSource": "mongods",
+    "public": false,
+    "relations": {
+      "User": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "mongods",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongods",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mongods",
+    "public": false
+  },
+  "sys_user": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_vmrs": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_visibility_meter": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_monitor_site": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_video_camera": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_fix_speeder": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_capture_camera": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_road_region": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_vms": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_vsl": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_broadcast": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_time_server": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_alarm": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_frog_light": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_signal_lamp": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_code": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "s_threshold": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "meteorological_data": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "warning_monitoring": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "s_surveillance_system": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_code_type": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "s_unit": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_log": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_violation_ball": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "manual_report": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "event_command": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "event_process": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "s_plan": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "z_area":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "z_organization":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "z_road":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "z_section":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "log_device_region":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "log_device_led_publish":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "log_device_control":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_vio_code":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "passing_vehicle":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "violation_vehicle":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_role":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_status":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "z_vendor":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "d_distance":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_device":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_auth":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "led_program_list":{
+    "dataSource": "mongods",
+    "public": true
+  },
+  "sys_whitelist":{
+    "dataSource": "mongods",
+    "public": true
+  }
+}

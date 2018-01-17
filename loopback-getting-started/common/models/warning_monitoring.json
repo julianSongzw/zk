@@ -1,0 +1,130 @@
+{
+  "name": "warning_monitoring",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "wSource": {
+      "type": "number",
+      "required": true
+    },
+    "eqId": {
+      "type": "String"
+    },
+    "eqName": {
+      "type": "String"
+    },
+    "upTime": {
+      "type": "number",
+      "required": true
+    },
+    "visibility": {
+      "type": "any"
+    },
+    "visibilityLevel": {
+      "type": "any"
+    },
+    "surfaceT": {
+      "type": "any"
+    },
+    "surfaceTLevel":{
+      "type": "any"
+    },
+    "roadSituationLevel": {
+      "type": "any"
+    },
+    "waterFilmThickness": {
+      "type": "any"
+    },
+    "waterFilmThicknessLevel": {
+      "type": "any"
+    },
+    "roadSituation": {
+      "type": "any"
+    },
+    "level": {
+      "type": "any"
+    },
+    "ps": {
+      "type": "String"
+    },
+    "addr": {
+      "type": "String"
+    },
+    "state": {
+      "type": "number",
+      "required": true
+    },
+    "sysCode": {
+      "type": "String"
+    },
+    "sysName": {
+      "type": "String"
+    },
+    "delFlag": {
+      "type": "number",
+      "required": true
+    },
+    "index":"String",
+    "iceRate":"any"
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    }
+  ],
+  "methods": {}
+}

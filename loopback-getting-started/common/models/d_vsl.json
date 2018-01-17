@@ -1,0 +1,182 @@
+{
+  "name": "d_vsl",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "device_nbr": {
+      "type": "String",
+      "required": true
+    },
+    "nbr_auto":"number",
+    "device_name": {
+      "type": "String",
+      "required": true
+    },
+    "vsl_type":{
+      "type":"number",
+      "required":true
+    },
+    "video_nbr":"String",
+    "ip": {
+      "type": "String"
+    },
+    "port": {
+      "type": "String"
+    },
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "org_name": {
+      "type": "String",
+      "required": true
+    },
+    "road_code": {
+      "type": "String",
+      "required": true
+    },
+    "road_name": {
+      "type": "String",
+      "required":true
+    },
+    "section_code":{
+      "type": "String"
+    },
+    "mileage": {
+      "type": "String",
+      "required": true
+    },
+    "metre": {
+      "type": "String"
+    },
+    "address": {
+      "type": "String"
+    },
+    "longitude": {
+      "type": "String"
+    },
+    "latitude": {
+      "type": "String"
+    },
+    "card_vendor": {
+      "type": "String"
+    },
+    "card_model": {
+      "type": "String"
+    },
+    "card_version": {
+      "type": "String"
+    },
+    "pixel_width": {
+      "type": "number"
+    },
+    "pixel_height": {
+      "type": "String"
+    },
+    "pitch": {
+      "type": "String"
+    },
+    "width": {
+      "type": "String"
+    },
+    "height": {
+      "type": "String"
+    },
+    "vendor":"String",
+    "construct":"String",
+    "model":"String",
+    "sn":"String",
+    "spec":"String",
+    "sys_code":"String",
+    "sys_name":"String",
+    "set":"Object",
+    "vms_type":"String",
+    "text":"String",
+    "speed_band":"any"
+  },
+  "validations": [],
+  "relations": {
+    "status":{
+      "type": "hasOne",
+      "model": "d_status",
+      "foreignKey": "device_nbr",
+      "primaryKey": "device_nbr"
+    },
+    "video":{
+      "type": "belongsTo",
+      "model": "d_video_camera",
+      "foreignKey": "video_nbr",
+      "primaryKey": "device_nbr"
+    },
+    "programList":{
+      "type": "hasMany",
+      "model": "led_program_list",
+      "foreignKey": "device_nbr",
+      "primaryKey": "device_nbr"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "upsertWithWhere"
+    }
+  ],
+  "methods": {}
+}

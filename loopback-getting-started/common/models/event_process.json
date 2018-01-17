@@ -1,0 +1,121 @@
+{
+  "name": "event_process",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "eventId": {
+      "type": "String",
+      "required": true
+    },
+    "eventName": {
+      "type": "String"
+    },
+    "level": {
+      "type": "number",
+      "required": true
+    },
+    "sysCode": {
+      "type": "String"
+    },
+    "sysName": {
+      "type": "String"
+    },
+    "startTime": {
+      "type": "number"
+    },
+    "endTime": {
+      "type": "number"
+    },
+    "contents":"any",
+    "state": {
+      "type": "number"
+    },
+    "result": {
+      "type": "number"
+    },
+    "ps": {
+      "type": "String"
+    },
+    "delFlag": {
+      "type": "number"
+    },
+    "index":{
+      "type": "String"
+    },
+    "source":"String",
+    "sourceType":"number"
+  },
+  "validations": [],
+  "relations": {
+    "e_command": {
+      "type": "belongsTo",
+      "model": "event_command",
+      "foreignKey": "event"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count",
+        "listAll"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    }
+  ],
+  "methods": {}
+}

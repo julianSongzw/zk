@@ -1,0 +1,144 @@
+{
+  "name": "z_organization",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "org_name": {
+      "type": "String",
+      "required": true
+    },
+    "parent_org_code":{
+      "type": "String",
+      "required": true
+    },
+    "parent_instruct_org_code":{
+      "type": "String",
+      "required": true
+    },
+    "org_type": {
+      "type": "number",
+      "required": true
+    },
+    "is_department": {
+      "type": "number",
+      "required": true
+    },
+    "is_highway_org": {
+      "type": "number",
+      "required": true
+    },
+    "org_level": {
+      "type": "number",
+      "required": true
+    },
+    "org_phone_nbr": {
+      "type": "String"
+    },
+    "org_header_name": {
+      "type": "String"
+    },
+    "org_header_phone": {
+      "type": "String"
+    },
+    "sponsor_distributes": {
+      "type": "String"
+    },
+    "address_desc": {
+      "type": "String"
+    },
+    "district_code": {
+      "type": "String",
+      "required":true
+    },
+    "create_by": {
+      "type": "String"
+    },
+    "create_time": {
+      "type": "number"
+    },
+    "upstring_by": {
+      "type": "String"
+    },
+    "upstring_time": {
+      "type": "number"
+    },
+    "remark": {
+      "type": "String"
+    },
+    "lon_lat": {
+      "type": "String"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count",
+        "listAll"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    }
+  ],
+  "methods": {}
+}

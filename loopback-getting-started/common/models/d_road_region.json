@@ -1,0 +1,177 @@
+{
+  "name": "d_road_region",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "region_name": {
+      "type": "String",
+      "required": true
+    },
+    "region_code": {
+      "type": "String",
+      "required": true
+    },
+    "code_auto":"number",
+    "entry_site_code": {
+      "type": "String",
+      "required": true
+    },
+    "exit_site_code": {
+      "type": "String",
+      "required": true
+    },
+    "site_code": {
+      "type": "String"
+    },
+    "direction_type": {
+      "type": "number",
+      "required": true
+    },
+    "direction_name": {
+      "type": "String",
+      "required": true
+    },
+    "speedBrand":"String",
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "org_name": {
+      "type": "String",
+      "required": true
+    },
+    "road_code": {
+      "type": "String",
+      "required": true
+    },
+    "road_name": {
+      "type": "String",
+      "required":true
+    },
+    "section_code":{
+      "type": "String"
+    },
+    "mileage": {
+      "type": "String",
+      "required": true
+    },
+    "metre": {
+      "type": "String"
+    },
+    "address": {
+      "type": "String"
+    },
+    "longitude": {
+      "type": "String"
+    },
+    "latitude": {
+      "type": "String"
+    },
+    "distance": {
+      "type": "number",
+      "required": true
+    },
+    "large_vehicle_limit": {
+      "type": "number",
+      "required": true
+    },
+    "large_vehicle_allow": {
+      "type": "number"
+    },
+    "small_vehicle_limit": {
+      "type": "number",
+      "required": true
+    },
+    "small_vehicle_allow": {
+      "type": "number"
+    },
+    "lower_limit": {
+      "type": "number",
+      "required": true
+    },
+    "command_platform ": "String",
+    "sys_code":"String",
+    "sys_name":"String",
+    "set":"String",
+    "text":"String"
+  },
+  "validations": [],
+  "relations": {
+    "status":{
+      "type": "hasOne",
+      "model": "d_status",
+      "foreignKey": "device_nbr",
+      "primaryKey": "region_code"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "upsertWithWhere"
+    }
+  ],
+  "methods": {}
+}

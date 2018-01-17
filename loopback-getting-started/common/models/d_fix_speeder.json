@@ -1,0 +1,186 @@
+{
+  "name": "d_fix_speeder",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "device_name": {
+      "type": "String",
+      "required": true
+    },
+    "device_nbr": {
+      "type": "String",
+      "required": true
+    },
+    "virtual_site": {
+      "type": "number",
+      "required": true
+    },
+    "direction_name": {
+      "type": "String"
+    },
+    "lane_total": {
+      "type": "number",
+      "required": true
+    },
+    "direction_type": {
+      "type": "number",
+      "required": true
+    },
+    "area_code": {
+      "type": "String",
+      "required": true
+    },
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "road_code": {
+      "type": "String",
+      "required": true
+    },
+    "road_alias": {
+      "type": "String"
+    },
+    "mileage": {
+      "type": "String"
+    },
+    "metre": {
+      "type": "String"
+    },
+    "address": {
+      "type": "String",
+      "required": true
+    },
+    "longitude": {
+      "type": "number",
+      "required": true
+    },
+    "latitude": {
+      "type": "number",
+      "required": true
+    },
+    "large_vehicle_limit": {
+      "type": "number",
+      "required": true
+    },
+    "small_vehicle_limit": {
+      "type": "number",
+      "required": true
+    },
+    "lower_limit": {
+      "type": "number",
+      "required": true
+    },
+    "expire_date": {
+      "type": "number"
+    },
+    "user": {
+      "type": "String",
+      "required": true
+    },
+    "password": {
+      "type": "String",
+      "required": true
+    },
+    "online_status": {
+      "type": "number"
+    },
+    "fault_status": {
+      "type": "number"
+    },
+    "contruct_date": {
+      "type": "number"
+    },
+    "band_width": {
+      "type": "number",
+      "required": true
+    },
+    "network_type": {
+      "type": "number",
+      "required": true
+    },
+    "factory_sn": {
+      "type": "number"
+    },
+    "vendor": {
+      "type": "String"
+    },
+    "build_date": {
+      "type": "number"
+    },
+    "ip": {
+      "type": "String",
+      "required": true
+    },
+    "port": {
+      "type": "String",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    }
+  ],
+  "methods": {}
+}

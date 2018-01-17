@@ -1,0 +1,167 @@
+{
+  "name": "d_monitor_site",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "allowEternalTokens": false
+  },
+  "properties": {
+    "site_name": {
+      "type": "String",
+      "required": true
+    },
+    "nbr_auto":"number",
+    "site_nbr": {
+      "type": "String",
+      "required": true
+    },
+    "site_type": {
+      "type": "number",
+      "required": true
+    },
+    "device_type": {
+      "type": "number",
+      "required": true
+    },
+    "direction": "String",
+    "lane_total": {
+      "type": "number",
+      "required": true
+    },
+    "org_code": {
+      "type": "String",
+      "required": true
+    },
+    "org_name": {
+      "type": "String",
+      "required": true
+    },
+    "road_code": {
+      "type": "String",
+      "required": true
+    },
+    "road_name": {
+      "type": "String",
+      "required":true
+    },
+    "section_code":{
+      "type": "String"
+    },
+    "mileage": {
+      "type": "String",
+      "required": true
+    },
+    "metre": {
+      "type": "String"
+    },
+    "address": {
+      "type": "String"
+    },
+    "longitude": {
+      "type": "String"
+    },
+    "latitude": {
+      "type": "String"
+    },
+    "large_vehicle_limit": "String",
+    "small_vehicle_limit": "String",
+    "lower_limit": "String",
+    "up_direction": {
+      "type": "String"
+    },
+    "down_direction": {
+      "type": "String"
+    },
+    "vendor":"String",
+    "construct":"String",
+    "model":"String",
+    "sn":"String",
+    "spec":"String",
+    "sys_code":"String",
+    "sys_name":"String",
+    "set":"any"
+  },
+  "validations": [],
+  "relations": {
+    "cameras": {
+      "type": "hasMany",
+      "model": "d_capture_camera",
+      "foreignKey": "site_nbr",
+      "primaryKey": "site_nbr"
+    },
+    "region":{
+      "type": "belongsTo",
+      "model": "d_road_region",
+      "foreignKey": "site_nbr",
+      "primaryKey": "entry_site_code"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "list",
+        "find",
+        "count",
+        "listAll"
+      ]
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "add"
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "del"
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "destroyAll"
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "up"
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateAll"
+    },
+    {
+      "principalType": "USER",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "upsertWithWhere"
+    }
+  ],
+  "methods": {}
+}
